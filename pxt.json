@@ -1,0 +1,22 @@
+{
+    "name": "pixelracer",
+    "version": "0.1.0",
+    "description": "Pixel-Racer: Rennspiel von oben für 1 bis 4 Spieler mit Computer-Fahrern, Meisterschaft über mehrere Strecken",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "README.md",
+        "assets.ts",
+        "tracks.ts",
+        "sounds.ts",
+        "engine.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
