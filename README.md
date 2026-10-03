@@ -23,3 +23,7 @@ Kontrollpunkte `rcCheck1`, `rcCheck2` … in Fahrtrichtung quer über die Straß
 Autos: Animation mit 16 Bildern `rcCar1` … `rcCar4` (Bild 0 schaut nach rechts, dann im Uhrzeigersinn).
 
 Einbinden: Erweiterungen → `github:theodorthg/pxt-pixelracer`. Lizenz: MIT.
+
+## Stil-Paletten (ab v0.2.0)
+
+Jeder Stil bringt eine eigene 16-Farben-Palette mit; sie wird beim Laden gesetzt. Weiß, Rot, Gelb, Beige, Braun und Schwarz bleiben gleich. Abschalten mit dem Block „Stil-Paletten aus“ (`pixelracer.useStylePalettes(false)`), dann gilt die Palette des Projekts. Farben: `generator/assetgen.js` (GENRE_PALETTES), neu erzeugen mit `node tools/build-palettes.js`.

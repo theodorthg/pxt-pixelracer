@@ -73,6 +73,11 @@ namespace pixelracer {
         for (let n = 0; n < 9; n++) cpTiles[n] = projTile("rcCheck" + (n + 1), racerGfx.tilesets[0][K_CP + n])
     }
     function play(p: music.Playable) { music.play(p, music.PlaybackMode.InBackground) }
+    // Paletten je Stil (palettes.ts): beim Laden wird die Palette des Stils gesetzt
+    let stylePalettes = true
+    function applyPalette(s: number) {
+        if (stylePalettes && s >= 0 && s < rcPalettes.list.length) image.setPalette(rcPalettes.list[s])
+    }
 
     // ---------------------------------------------------------------- Strecken
     function trackMap(i: number): tiles.TileMapData {
@@ -132,6 +137,7 @@ namespace pixelracer {
     function loadTrack(i: number) {
         track = i
         style = trackStyle(i)
+        applyPalette(style)
         tiles.setCurrentTilemap(trackMap(i))
         scene.setBackgroundColor(15)
         const data = game.currentScene().tileMap.data
@@ -560,4 +566,13 @@ namespace pixelracer {
     //% blockId=pr_track block="aktuelle Strecke"
     //% group="Werte" weight=70
     export function currentTrack(): number { return Math.min(track, trackCount - 1) + 1 }
+
+    /**
+     * Jeder Stil bringt seine eigene 16-Farben-Palette mit (z. B. Blautöne im Meer, Glut in der Lavahöhle).
+     * Aus: das Spiel nutzt die Palette des Projekts.
+     */
+    //% blockId=rc_palettes block="Stil-Paletten $on"
+    //% on.shadow=toggleOnOff on.defl=true
+    //% group="Einstellungen" weight=10
+    export function useStylePalettes(on: boolean) { stylePalettes = on }
 }
